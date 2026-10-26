@@ -19,7 +19,7 @@ export function useSubjects() {
             setSubjects(data);
         } catch (error) {
             console.error(error);
-            message.error("មិនអាចទាញយកទិន្នន័យមុខវិជ្ជាបានទេ");
+            message.error("Failed to fetch subjects");
         } finally {
             setLoading(false);
         }
@@ -36,7 +36,7 @@ export function useSubjects() {
             .catch((error) => {
                 if (active) {
                     console.error(error);
-                    message.error("មិនអាចទាញយកទិន្នន័យមុខវិជ្ជាបានទេ");
+                    message.error("Failed to fetch subjects");
                 }
             })
             .finally(() => {
@@ -54,16 +54,16 @@ export function useSubjects() {
         try {
             if (id) {
                 await updateSubject({ ...subject, id });
-                message.success("កែប្រែមុខវិជ្ជាជោគជ័យ");
+                message.success("Subject updated successfully");
             } else {
                 await createSubject(subject);
-                message.success("បន្ថែមមុខវិជ្ជាថ្មីជោគជ័យ");
+                message.success("Subject created successfully");
             }
             await fetchSubjects();
             return true;
         } catch (error) {
             console.error(error);
-            message.error("ប្រតិបត្តិការបរាជ័យ");
+            message.error("Operation failed");
             return false;
         }
     };
@@ -72,11 +72,11 @@ export function useSubjects() {
         if (!id) return;
         try {
             await deleteSubject(id);
-            message.success("លុបមុខវិជ្ជាជោគជ័យ");
+            message.success("Subject deleted successfully");
             await fetchSubjects();
         } catch (error) {
             console.error(error);
-            message.error("មិនអាចលុបមុខវិជ្ជាបានទេ");
+            message.error("Failed to delete subject");
         }
     };
 

@@ -64,7 +64,7 @@ export default function Section() {
             <div className="flex justify-between items-center mb-4">
                 <h1 className="text-2xl font-bold text-gray-800">Section List</h1>
                 <Button type="primary" onClick={handleOpenCreate}>
-                    + បន្ថែមក្រុម/ថ្នាក់ថ្មី
+                    + Add Section
                 </Button>
             </div>
 

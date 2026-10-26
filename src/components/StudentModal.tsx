@@ -40,30 +40,30 @@ export default function StudentModal({
 
     return (
         <Modal
-            title={editingStudent ? "កែប្រែព័ត៌មានសិស្ស" : "បន្ថែមសិស្សថ្មី"}
+            title={editingStudent ? "Edit Student" : "Add New Student"}
             open={open}
             onOk={handleOk}
             onCancel={onCancel}
-            okText="រក្សាទុក"
-            cancelText="បោះបង់"
+            okText="Save"
+            cancelText="Cancel"
             destroyOnClose
         >
             <Form form={form} layout="vertical" className="mt-4">
                 <Form.Item
                     name="fullName"
-                    label="ឈ្មោះពេញ (Full Name)"
-                    rules={[{ required: true, message: "សូមបញ្ចូលឈ្មោះសិស្ស" }]}
+                    label="Full Name"
+                    rules={[{ required: true, message: "Please enter student name" }]}
                 >
-                    <Input placeholder="បញ្ចូលឈ្មោះពេញ..." />
+                    <Input placeholder="Enter full name..." />
                 </Form.Item>
 
                 <Form.Item
                     name="gender"
-                    label="ភេទ (Gender)"
-                    rules={[{ required: true, message: "សូមជ្រើសរើសភេទ" }]}
+                    label="Gender"
+                    rules={[{ required: true, message: "Please select gender" }]}
                 >
                     <Select
-                        placeholder="ជ្រើសរើសភេទ"
+                        placeholder="Select gender"
                         options={[
                             { label: "Male", value: "Male" },
                             { label: "Female", value: "Female" },
@@ -73,11 +73,11 @@ export default function StudentModal({
 
                 <Form.Item
                     name="subjectId"
-                    label="មុខវិជ្ជា (Subject)"
-                    rules={[{ required: true, message: "សូមជ្រើសរើសមុខវិជ្ជា" }]}
+                    label="Subject"
+                    rules={[{ required: true, message: "Please select subject" }]}
                 >
                     <Select
-                        placeholder="ជ្រើសរើសមុខវិជ្ជា"
+                        placeholder="Select subject"
                         options={subjects.map((sub) => ({
                             label: sub.name,
                             value: sub.id,
@@ -87,11 +87,11 @@ export default function StudentModal({
 
                 <Form.Item
                     name="sectionId"
-                    label="ក្រុម/ថ្នាក់ (Section)"
-                    rules={[{ required: true, message: "សូមជ្រើសរើសក្រុម" }]}
+                    label="Section"
+                    rules={[{ required: true, message: "Please select section" }]}
                 >
                     <Select
-                        placeholder="ជ្រើសរើសក្រុម"
+                        placeholder="Select section"
                         options={sections.map((sec) => ({
                             label: sec.name,
                             value: sec.id,

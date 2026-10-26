@@ -60,7 +60,7 @@ export default function Student() {
             <div className="flex justify-between items-center mb-4">
                 <h1 className="text-2xl font-bold text-gray-800">Student Directory</h1>
                 <Button type="primary" onClick={handleOpenCreate}>
-                    + បន្ថែមសិស្សថ្មី
+                    + Add Student
                 </Button>
             </div>
 

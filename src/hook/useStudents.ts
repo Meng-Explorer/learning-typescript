@@ -19,7 +19,7 @@ export function useStudents() {
             setStudents(data);
         } catch (error) {
             console.error(error);
-            message.error("មិនអាចទាញយកទិន្នន័យសិស្សបានទេ");
+            message.error("Failed to fetch students");
         } finally {
             setLoading(false);
         }
@@ -36,7 +36,7 @@ export function useStudents() {
             .catch((error) => {
                 if (active) {
                     console.error(error);
-                    message.error("មិនអាចទាញយកទិន្នន័យសិស្សបានទេ");
+                    message.error("Failed to fetch students");
                 }
             })
             .finally(() => {
@@ -54,16 +54,16 @@ export function useStudents() {
         try {
             if (id) {
                 await updateStudent({ ...student, id });
-                message.success("កែប្រែព័ត៌មានសិស្សជោគជ័យ");
+                message.success("Student updated successfully");
             } else {
                 await createStudent(student);
-                message.success("បន្ថែមសិស្សថ្មីជោគជ័យ");
+                message.success("Student created successfully");
             }
             await fetchStudents();
             return true;
         } catch (error) {
             console.error(error);
-            message.error("ប្រតិបត្តិការបរាជ័យ");
+            message.error("Operation failed");
             return false;
         }
     };
@@ -72,11 +72,11 @@ export function useStudents() {
         if (!id) return;
         try {
             await deleteStudent(id);
-            message.success("លុបទិន្នន័យជោគជ័យ");
+            message.success("Student deleted successfully");
             await fetchStudents();
         } catch (error) {
             console.error(error);
-            message.error("មិនអាចលុបទិន្នន័យបានទេ");
+            message.error("Failed to delete student");
         }
     };
 

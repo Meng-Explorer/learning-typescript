@@ -57,7 +57,7 @@ export default function Subject() {
             <div className="flex justify-between items-center mb-4">
                 <h1 className="text-2xl font-bold text-gray-800">Subject List</h1>
                 <Button type="primary" onClick={handleOpenCreate}>
-                    + បន្ថែមមុខវិជ្ជាថ្មី
+                    + Add Subject
                 </Button>
             </div>
 

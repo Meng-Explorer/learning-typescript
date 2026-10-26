@@ -38,25 +38,25 @@ export default function SubjectModal({
 
     return (
         <Modal
-            title={editingSubject ? "កែប្រែមុខវិជ្ជា (Edit Subject)" : "បន្ថែមមុខវិជ្ជាថ្មី (Add Subject)"}
+            title={editingSubject ? "Edit Subject" : "Add New Subject"}
             open={open}
             onOk={handleOk}
             onCancel={onCancel}
-            okText="រក្សាទុក"
-            cancelText="បោះបង់"
+            okText="Save"
+            cancelText="Cancel"
             destroyOnClose
         >
             <Form form={form} layout="vertical" className="mt-4">
                 <Form.Item
                     name="name"
-                    label="ឈ្មោះមុខវិជ្ជា (Name)"
-                    rules={[{ required: true, message: "សូមបញ្ចូលឈ្មោះមុខវិជ្ជា" }]}
+                    label="Subject Name"
+                    rules={[{ required: true, message: "Please enter subject name" }]}
                 >
-                    <Input placeholder="បញ្ចូលឈ្មោះមុខវិជ្ជា..." />
+                    <Input placeholder="Enter subject name..." />
                 </Form.Item>
 
-                <Form.Item name="notes" label="កំណត់សម្គាល់ (Notes)">
-                    <Input.TextArea rows={3} placeholder="បញ្ចូលកំណត់សម្គាល់ (បើមាន)..." />
+                <Form.Item name="notes" label="Notes">
+                    <Input.TextArea rows={3} placeholder="Enter notes (optional)..." />
                 </Form.Item>
             </Form>
         </Modal>

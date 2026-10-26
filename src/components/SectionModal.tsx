@@ -40,38 +40,38 @@ export default function SectionModal({
 
     return (
         <Modal
-            title={editingSection ? "កែប្រែក្រុម/ថ្នាក់ (Edit Section)" : "បន្ថែមក្រុម/ថ្នាក់ថ្មី (Add Section)"}
+            title={editingSection ? "Edit Section" : "Add New Section"}
             open={open}
             onOk={handleOk}
             onCancel={onCancel}
-            okText="រក្សាទុក"
-            cancelText="បោះបង់"
+            okText="Save"
+            cancelText="Cancel"
             destroyOnClose
         >
             <Form form={form} layout="vertical" className="mt-4">
                 <Form.Item
                     name="code"
-                    label="កូដថ្នាក់ (Code)"
-                    rules={[{ required: true, message: "សូមបញ្ចូលកូដថ្នាក់" }]}
+                    label="Code"
+                    rules={[{ required: true, message: "Please enter section code" }]}
                 >
-                    <Input placeholder="បញ្ចូលកូដ (ឧ. SEC01)..." />
+                    <Input placeholder="Enter code (e.g. SEC01)..." />
                 </Form.Item>
 
                 <Form.Item
                     name="name"
-                    label="ឈ្មោះក្រុម/ថ្នាក់ (Name)"
-                    rules={[{ required: true, message: "សូមបញ្ចូលឈ្មោះក្រុម" }]}
+                    label="Section Name"
+                    rules={[{ required: true, message: "Please enter section name" }]}
                 >
-                    <Input placeholder="បញ្ចូលឈ្មោះក្រុម..." />
+                    <Input placeholder="Enter section name..." />
                 </Form.Item>
 
                 <Form.Item
                     name="subjectId"
-                    label="មុខវិជ្ជា (Subject)"
-                    rules={[{ required: true, message: "សូមជ្រើសរើសមុខវិជ្ជា" }]}
+                    label="Subject"
+                    rules={[{ required: true, message: "Please select subject" }]}
                 >
                     <Select
-                        placeholder="ជ្រើសរើសមុខវិជ្ជា"
+                        placeholder="Select subject"
                         options={subjects.map((sub) => ({
                             label: sub.name,
                             value: sub.id,
@@ -79,8 +79,8 @@ export default function SectionModal({
                     />
                 </Form.Item>
 
-                <Form.Item name="notes" label="កំណត់សម្គាល់ (Notes)">
-                    <Input.TextArea rows={3} placeholder="បញ្ចូលកំណត់សម្គាល់ (បើមាន)..." />
+                <Form.Item name="notes" label="Notes">
+                    <Input.TextArea rows={3} placeholder="Enter notes (optional)..." />
                 </Form.Item>
             </Form>
         </Modal>

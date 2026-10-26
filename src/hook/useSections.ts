@@ -19,7 +19,7 @@ export function useSections() {
             setSections(data);
         } catch (error) {
             console.error(error);
-            message.error("មិនអាចទាញយកទិន្នន័យក្រុម/ថ្នាក់បានទេ");
+            message.error("Failed to fetch sections");
         } finally {
             setLoading(false);
         }
@@ -36,7 +36,7 @@ export function useSections() {
             .catch((error) => {
                 if (active) {
                     console.error(error);
-                    message.error("មិនអាចទាញយកទិន្នន័យក្រុម/ថ្នាក់បានទេ");
+                    message.error("Failed to fetch sections");
                 }
             })
             .finally(() => {
@@ -54,16 +54,16 @@ export function useSections() {
         try {
             if (id) {
                 await updateSection({ ...section, id });
-                message.success("កែប្រែក្រុម/ថ្នាក់ជោគជ័យ");
+                message.success("Section updated successfully");
             } else {
                 await createSection(section);
-                message.success("បន្ថែមក្រុម/ថ្នាក់ថ្មីជោគជ័យ");
+                message.success("Section created successfully");
             }
             await fetchSections();
             return true;
         } catch (error) {
             console.error(error);
-            message.error("ប្រតិបត្តិការបរាជ័យ");
+            message.error("Operation failed");
             return false;
         }
     };
@@ -72,11 +72,11 @@ export function useSections() {
         if (!id) return;
         try {
             await deleteSection(id);
-            message.success("លុបក្រុម/ថ្នាក់ជោគជ័យ");
+            message.success("Section deleted successfully");
             await fetchSections();
         } catch (error) {
             console.error(error);
-            message.error("មិនអាចលុបក្រុម/ថ្នាក់បានទេ");
+            message.error("Failed to delete section");
         }
     };
 
